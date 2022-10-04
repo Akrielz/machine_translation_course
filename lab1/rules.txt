@@ -1,0 +1,12 @@
+﻿Rewritting rules
+ADJ   + N  ->     N   + ADJ
+ 
+POS identification rules
+The + Masc N -> Le + Masc N
+The + Fem N -> La + Fem N
+A + Masc N -> Un + Masc N
+A + Fem N -> Une + Fem N
+DET + saw -> DET + Fem N
+saw + DET -> V + DET 
+DET + cane -> DET + Fem N
+N + cane -> N + ADJ

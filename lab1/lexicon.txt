@@ -1,0 +1,47 @@
+﻿English-to-French Translation Lexicon (by part of speech):
+
+Masc N (nouns) : 
+Cat -> Chat 
+Book -> Livre 
+Sugar -> Sucre 
+
+Fem N (nouns) : 
+Cane -> Canne 
+Woman -> Femme 
+Table -> Table 
+Saw -> Scie 
+
+V (verbs) : 
+Sleeps -> Dort 
+Reads -> Lit 
+Walks -> Marche 
+Cut -> A coupé 
+Saw -> A Vu 
+Is -> Est
+ 
+Masc DET (determiners) :
+The -> Le
+A -> Un
+
+Fem DET (determiners) :
+The -> La
+A -> Une
+
+ADJ (adjectives) : 
+Red -> Rouge 
+Happy -> Heureuse 
+Cane -> De Canne 
+
+CONJ (conjunctions) : 
+And -> Et 
+Or -> Ou 
+ 
+PREP (prepositions) : 
+With -> Avec 
+To -> A 
+From -> De 
+Under -> Sous
+
+PNOUN (proper noun): 
+Mary -> Marie
+Cambridge -> Cambridge
