@@ -1,4 +1,4 @@
-# Machine Translation Courses
+# Machine Translation Course
 
 ## Table of Contents
 
