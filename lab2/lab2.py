@@ -1,34 +1,17 @@
-from google.cloud import translate_v2
+from googletrans import Translator
 
 
-def translate_word(word):
-    # Use Google API to translate the word from English to French
-    # and return the translated word
-
-    # translate the word
-    translate_client = translate_v2.Client()
-    translation = translate_client.translate(word, target_language="fr")
-    word_fr = translation["translatedText"]
-
-    return word_fr
+def translate_text(texts, target_language, source_language, translator):
+    # Translate the text to the target language
+    translated_texts = translator.translate(texts, dest=target_language, src=source_language).text
+    print(translated_texts)
+    return translated_texts
 
 
-def translate(sentence_en):
-    # Use Google API to translate the sentence from English to French
-    # and return the translated sentence
-
-    # split the sentence into words
-    words = sentence_en.split()
-
-    # translate each word
-    words_fr = []
-    for word in words:
-        words_fr.append(translate_word(word))
-
-    # join the words into a sentence
-    sentence_fr = " ".join(words_fr)
-
-    return sentence_fr
+def translate_text_chain(texts, languages, translator):
+    for i in range(len(languages) - 1):
+        texts = translate_text(texts, languages[i + 1], languages[i], translator)
+    return texts
 
 
 def main():
@@ -37,16 +20,30 @@ def main():
 
     # read sentences from file "input.txt"
     with open("input.txt", "r") as f:
-        sentences_en = f.readlines()
+        sentences = f.readlines()
 
-    # strip
-    sentences_en = [sentence.strip() for sentence in sentences_en]
+    sentences = [sentence.strip() for sentence in sentences]
 
-    # Use Google API to translate the sentences from file "input.txt" to French
-    # and write the translated sentences to file "output.txt"
+    # read the languages from file "langs.txt"
+    with open("langs.txt", "r") as f:
+        languages = f.readlines()
+
+    languages = [lang.strip() for lang in languages]
+    print(languages)
+
+    # Create a translator object
+    translator = Translator()
+
+    # Translate the sentences
+    translated_sentences = []
+    for sentence in sentences:
+        print(f"\n{sentence}")
+        translated_sentences.append(translate_text_chain(sentence, languages, translator))
+
+    # write the translated sentences to file "output.txt"
     with open("output.txt", "w") as f:
-        for sentence_en in sentences_en:
-            f.write(translate(sentence_en))
+        for sentence in translated_sentences:
+            f.write(sentence + "\n")
 
 
 if __name__ == "__main__":
