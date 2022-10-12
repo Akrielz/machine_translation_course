@@ -67,7 +67,7 @@ def predict_on_sentence(sentence, n_gram, n_gram_prev, n=2):
 
 def main():
     # read from input.txt
-    with open("input.txt", "r") as f:
+    with open("big_input.txt", "r") as f:
         sentences_en = f.readlines()
 
     # strip
@@ -81,7 +81,15 @@ def main():
     tri_gram_probabilities = compute_n_gram_probabilities(tri_gram, bi_gram)
 
     # test sentence
-    sentence = "Maria citește"
+    sentence = "Arta este"
+    word = predict_on_sentence(sentence, tri_gram_probabilities, bi_gram, n=3)
+    sentence += " " + word
+    word = predict_on_sentence(sentence, tri_gram_probabilities, bi_gram, n=3)
+    sentence += " " + word
+    word = predict_on_sentence(sentence, tri_gram_probabilities, bi_gram, n=3)
+    sentence += " " + word
+    word = predict_on_sentence(sentence, tri_gram_probabilities, bi_gram, n=3)
+    sentence += " " + word
     word = predict_on_sentence(sentence, tri_gram_probabilities, bi_gram, n=3)
     sentence += " " + word
     word = predict_on_sentence(sentence, tri_gram_probabilities, bi_gram, n=3)
