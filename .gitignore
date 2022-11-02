@@ -145,3 +145,8 @@ dmypy.json
 .idea/*
 
 *.rar
+
+lab4/GIZA++-v2/
+lab4/GIZA++-v2/*
+lab4/mkcls-v2/
+lab4/mkcls-v2/*
